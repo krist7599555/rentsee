@@ -1,0 +1,33 @@
+{
+  "name": "vue",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "dev": "vue-cli-service serve 2>/dev/null",
+    "deploy": "rsync -r dist/* root@128.199.216.159:/var/www/rentsee"
+  },
+  "dependencies": {
+    "@types/vue": "^2.0.0",
+    "@vue/composition-api": "^0.3.4",
+    "axios": "^0.19.2",
+    "buefy": "^0.8.10",
+    "core-js": "^3.4.4",
+    "local-storage": "^2.0.0",
+    "lodash": "^4.17.15",
+    "pug": "^2.0.4",
+    "pug-plain-loader": "^1.0.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.0.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.1.2",
+    "@vue/cli-plugin-typescript": "^4.1.2",
+    "@vue/cli-service": "^4.1.2",
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "typescript": "^3.4.3",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
