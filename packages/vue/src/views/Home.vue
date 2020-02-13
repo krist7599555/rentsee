@@ -7,6 +7,10 @@
       b-field: b-input(v-model='username' placeholder='username')
       b-field: b-input(v-model='password' placeholder='password')
       b-field(grouped)
+        b-input(v-model='upatch.key' placeholder='key')
+        b-input(v-model='upatch.value' placeholder='val')
+        b-button(@click='auth.patch({[upatch.key]: upatch.value})' type='is-info') patch
+      b-field(grouped)
         .control: b-button(@click='auth.register({username, password})') register
         .control: b-button(@click='auth.login({username, password})') login
         .control: b-button(@click='auth.logout()') logout
@@ -21,11 +25,13 @@
       table.table
         thead
           tr
-            th car id
+            //- th car id
+            th info
             th: b-button(type='is-info' @click='cars.find()') refresh
         tbody
           tr(v-for='o in cars.values' :key='o._id')
-            td {{o._id}}
+            //- td {{o._id}}
+            td {{o}}
             td
               b-button(v-if='!auth.user' disabled) no auth
               b-button(
@@ -42,6 +48,9 @@
 
       br
       .box
+        code car: {{car}}
+        br
+        br
         b-field(:label='o.field' v-for='o in CAR_INTERFACE' :key='o.field')
           b-input(:type='o.type' v-model='car[o.field]')
         b-field
@@ -59,14 +68,15 @@
         div: table.table
           thead
             tr
-              th rent id
-              th renterId
-              th lessorId
+              th rent
+              //- th renterId
+              //- th lessorId
           tbody
             tr(v-for='o in rents.values')
-              td {{o._id}}
-              td {{o.renterId}}
-              td {{o.lessorId}}
+              td {{o}}
+              //- td {{o._id}}
+              //- td {{o.renterId}}
+              //- td {{o.lessorId}}
 
         
         
@@ -77,7 +87,7 @@
 import { auth } from '../store/auth';
 import { cars, CAR_INTERFACE } from '../store/cars';
 import { rents } from '../store/rents';
-import { onMounted } from '@vue/composition-api';
+import { onMounted, reactive } from '@vue/composition-api';
 export default {
   setup() {
     onMounted(async () => {
@@ -90,7 +100,8 @@ export default {
       password: '',
       auth,
       cars,
-      car: {},
+      car: reactive({}),
+      upatch: reactive({}),
       CAR_INTERFACE,
       rents
     };

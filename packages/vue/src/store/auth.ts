@@ -16,7 +16,8 @@ export const auth = reactive({
   logout,
   profile,
   login,
-  register
+  register,
+  patch
 });
 
 async function logout() {
@@ -38,6 +39,10 @@ async function register(body: RegisterDto) {
   const { user, token } = await axi.$post('/api/register', body);
   auth.user = user;
   tok.set(token);
+}
+
+async function patch(body: RegisterDto) {
+  return await axi.$patch('/api/users/me', body);
 }
 
 export interface User {
