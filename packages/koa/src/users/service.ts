@@ -43,16 +43,14 @@ export async function login(username: string, password: string) {
 
 export async function patch(id: string, user: User) {
   return await db.users.findOneAndUpdate(
-    { _id: id },
+    { _id: new ObjectID(id) },
     { $set: user },
     { upsert: false, returnOriginal: false }
   );
 }
 
 export async function find(query: FilterQuery<User>) {
-  return await db.users
-    .find(query, { projection: { id: 1, username: 1, phoneNumber: 1 } })
-    .toArray();
+  return await db.users.find(query).toArray();
 }
 export async function findOne(query: FilterQuery<User>) {
   return await db.users.findOne(query);
