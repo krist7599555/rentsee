@@ -5,7 +5,9 @@
     "lerna": "^3.19.0"
   },
   "scripts": {
-    "dev": "lerna run dev --stream"
+    "dev": "lerna run dev --stream",
+    "deploy": "lerna run deploy --stream",
+    "build": "lerna run build --stream"
   },
   "dependencies": {}
 }
