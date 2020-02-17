@@ -1,3 +1,5 @@
+## (Deprecate move to [sec3_OldFavor](https://github.com/2110423-2019-2/sec3_OldFavor))
+
 # Rentsee
 
 [Demo](https://rentsee.krist7599555.ml/)
