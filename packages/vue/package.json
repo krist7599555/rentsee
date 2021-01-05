@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/vue": "^2.0.0",
     "@vue/composition-api": "^0.3.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "buefy": "^0.8.10",
     "core-js": "^3.4.4",
     "local-storage": "^2.0.0",
